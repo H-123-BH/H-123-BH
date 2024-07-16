@@ -47,7 +47,7 @@ int main() {
     printf("\n");
 
 
-
+//INSERTION
 #include<stdio.h>  
 int main()  
 {  
@@ -74,6 +74,109 @@ int main()
     insertElement(arr, &size, 3, 2); // Insert 3 at index 2
 
     printf("Array after insertion: ");
+
+
+//DELETION
+    #include <stdio.h>
+
+void deleteElement(int arr[], int *size, int position) {
+    if (position < 0 || position >= *size) {
+        printf("Invalid position!\n");
+        return;
+    }
+
+    // Shift elements to the left
+    for (int i = position; i < *size - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+
+    // Decrease the size of the array
+    (*size)--;
+}
+
+int main() {
+    int arr[] = {41, 27, 31, 44, 53};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int position = 3; // Delete element at index 2 (value 3)
+    deleteElement(arr, &size, position);
+
+    printf("Array after deletion: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+//SORTRING
+#include <stdio.h>    
+     
+int main()    
+{    
+    //Initialize array     
+    int arr[] = {5, 2, 8, 7, 1};     
+    int temp = 0;    
+        
+    //Calculate length of array arr    
+    int length = sizeof(arr)/sizeof(arr[0]);    
+        
+    //Displaying elements of original array    
+    printf("Elements of original array: \n");    
+    for (int i = 0; i < length; i++) {     
+        printf("%d ", arr[i]);     
+    }      
+        
+    //Sort the array in ascending order    
+    for (int i = 0; i < length; i++) {     
+        for (int j = i+1; j < length; j++) {     
+           if(arr[i] > arr[j]) {    
+               temp = arr[i];    
+               arr[i] = arr[j];    
+               arr[j] = temp;    
+           }     
+        }     
+    }    
+        
+    printf("\n");    
+        
+    //Displaying elements of array after sorting    
+    printf("Elements of array sorted in ascending order: \n");    
+    for (int i = 0; i < length; i++) {     
+        printf("%d ", arr[i]);    
+    }    
+    return 0;    
+}
+
+//SEARCHING
+#include <stdio.h>
+
+int linear_search(int arr[], int n, int target) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            return i; // Element found at index i
+        }
+    }
+    return -1; // Element not found
+}
+
+int main() {
+    int arr[] = {4, 2, 9, 7, 91, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int target = 91;
+
+    int index = linear_search(arr, n, target);
+
+    if (index != -1) {
+        printf("Element %d found at index %d\n", target, index);
+    } else {
+        printf("Element %d not found\n", target);
+    }
+
+    return 0;
+}
     for (int i = 0; i < size; i++) {
         printf("%d ", arr[i]);
     }
