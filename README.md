@@ -1,19 +1,4 @@
-#include <stdio.h>
-int main()
-{
-    int arr[] = {50,60,70,80,50};
-    int size = sizeof(0);
-    printf("Array elements:");
-    for(int i =0; i<size; i++)
-    {
-        printf("%d",arr[i]);
-    }
-    printf("\n");
-    return 0 ;
-}   
-
-
-   #new one#
+//INSERTION
 #include <stdio.h>
 
 // Function to insert an element at a specific position in an array
@@ -46,8 +31,52 @@ int main() {
     }
     printf("\n");
 
+    insertElement(arr, &size, 3, 2); // Insert 3 at index 2
 
-//INSERTION
+    printf("Array after insertion: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+//DELETION
+#include <stdio.h>
+
+void deleteElement(int arr[], int *size, int position) {
+    if (position < 0 || position >= *size) {
+        printf("Invalid position!\n");
+        return;
+    }
+
+    // Shift elements to the left
+    for (int i = position; i < *size - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+
+    // Decrease the size of the array
+    (*size)--;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int position = 2; // Delete element at index 2 (value 3)
+    deleteElement(arr, &size, position);
+
+    printf("Array after deletion: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+//REVERSE
 #include<stdio.h>  
 int main()  
 {  
@@ -71,47 +100,8 @@ int main()
         printf("%d ", rev[i]);  
     }  
 }
-    insertElement(arr, &size, 3, 2); // Insert 3 at index 2
 
-    printf("Array after insertion: ");
-
-
-//DELETION
-    #include <stdio.h>
-
-void deleteElement(int arr[], int *size, int position) {
-    if (position < 0 || position >= *size) {
-        printf("Invalid position!\n");
-        return;
-    }
-
-    // Shift elements to the left
-    for (int i = position; i < *size - 1; i++) {
-        arr[i] = arr[i + 1];
-    }
-
-    // Decrease the size of the array
-    (*size)--;
-}
-
-int main() {
-    int arr[] = {41, 27, 31, 44, 53};
-    int size = sizeof(arr) / sizeof(arr[0]);
-
-    int position = 3; // Delete element at index 2 (value 3)
-    deleteElement(arr, &size, position);
-
-    printf("Array after deletion: ");
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-
-    return 0;
-}
-
-
-//SORTRING
+//SORTING 
 #include <stdio.h>    
      
 int main()    
@@ -163,9 +153,9 @@ int linear_search(int arr[], int n, int target) {
 }
 
 int main() {
-    int arr[] = {4, 2, 9, 7, 91, 5};
+    int arr[] = {4, 2, 9, 7, 1, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
-    int target = 91;
+    int target = 7;
 
     int index = linear_search(arr, n, target);
 
@@ -177,7 +167,16 @@ int main() {
 
     return 0;
 }
-    for (int i = 0; i < size; i++) {
+
+//DISPLAY
+#include <stdio.h>
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Array elements: ");
+    for(int i = 0; i < size; i++) {
         printf("%d ", arr[i]);
     }
     printf("\n");
